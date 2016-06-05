@@ -1,0 +1,33 @@
+.page-header {
+  border-bottom: 1px solid $gray-palm;
+  height: $page-header-height;
+  padding-left: $common-padding;
+  padding-right: $common-padding;
+  @include clearfix();
+
+  .title {
+    float: left;
+    margin: 0;
+    line-height: $page-header-height;
+  }
+
+  .actions-panel {
+    padding: ($page-header-height - $form-ctrl-height - $form-ctrl-margin*2) / 2 0;
+
+    .dropdown {
+      margin: $btn-margin;
+    }
+
+    .search-box {
+      width: 350px;
+      .form-control {
+        width: 310px;
+        margin-left: $margin/2;
+      }
+
+      .btn {
+        width: 40px;
+      }
+    }
+  }
+}

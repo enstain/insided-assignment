@@ -1,0 +1,40 @@
+.checkbox {
+  width: $checkbox-size;
+  position: relative;
+  
+  input[type=checkbox] {
+    position: relative;
+    margin: 0;
+    visibility: hidden;
+
+    &:after {
+      visibility: visible;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: $border-radius;
+      border: $border;
+      cursor: pointer;
+
+      font-family: FontAwesome;
+      content: $fa-var-check;
+      font-size: $checkbox-font-size;
+      line-height: $checkbox-size;
+      width: $checkbox-size;
+      height: $checkbox-size;
+      text-align: center;
+      background: transparent;
+      opacity: 1;
+      color: transparent;
+    }
+
+    &:checked {
+      &:after {
+        background: $blue;
+        border-color: $blue;
+        color: white;
+        text-shadow: $text-shadow;
+      }
+    }
+  }
+}

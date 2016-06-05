@@ -1,0 +1,71 @@
+.multiselect {
+  &.btn {
+    margin: 0;
+  }
+}
+
+.multiselect-container {
+  &.dropdown-menu {
+    padding: 0;
+
+    li {
+      &.active {
+        a {
+          background-color: $blue-light;
+        }
+      }
+
+      a {
+        padding: 3px $margin/2;
+
+        &:hover {
+          background: $blue;
+          color: $white;
+        }
+
+        label {
+          font-weight: 300;
+
+          &.checkbox, &.radio {
+            margin: $margin/2;
+          }
+
+          &.checkbox {
+            input {
+              &:after {
+                top: -3px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  input[type=radio] {
+    display: none;
+  }
+
+  &>li {
+    &:active, &:focus {
+      background-color: transparent;
+      outline: none;
+      border: none;
+    }
+
+    &>a {
+      label {
+        padding: 0;
+        &.radio {
+          padding-left: 0px;
+        }
+
+        &.checkbox {
+          input {
+            margin-right: $margin/2;
+          }
+        }
+      }
+    }
+  }
+}

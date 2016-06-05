@@ -1,0 +1,78 @@
+@import "../../lib/bootstrap-sass/assets/stylesheets/bootstrap/buttons";
+@import "../../lib/bootstrap-sass/assets/stylesheets/bootstrap/button-groups";
+
+.btn-group {
+  margin: $btn-margin;
+}
+
+.btn {
+  font-family: $font-bold;
+  font-weight: 600;
+  @include button-size($btn-padding-vertical, $btn-padding-horizontal, $regular-font-size, $btn-line-height, $btn-border-radius);
+  @include box-shadow($btn-shadow);
+  @include box-sizing(border-box);
+
+  margin: $btn-margin;
+
+  &.btn-icon-left > i.fa {
+    padding-right: $btn-padding-horizontal;
+    padding-left: 0;
+  }
+
+  &.btn-icon-right > i.fa {
+    padding-left: $btn-padding-horizontal;
+    padding-right: 0;
+  }
+
+  &.btn-icon {
+    width: $btn-height;
+    & > i.fa {
+      font-size: $btn-icon-size;
+      padding: 0;
+    }
+  }
+
+  &.btn-success {
+    border-color: darken($brand-success, 10%);
+  }
+
+  &.btn-info {
+    border-color: darken($brand-info, 10%);
+  }
+
+  &.btn-primary {
+    border-color: darken($brand-primary, 10%);
+  }
+
+  &.btn-danger {
+    border-color: darken($brand-danger, 10%);
+  }
+
+  &.active, &.active:hover, &.active:focus {
+    background-color: $gray-active;
+    border-color: darken($gray-active,30%);
+    color: $white;
+  }
+
+  &.btn-link {
+    @include box-shadow(none);
+    border: none;
+    text-decoration: none;
+    font-family: $font-regular;
+    font-weight: 300;
+    padding: 0;
+
+    &:active, &:focus {
+      background-color: transparent;
+      outline: none;
+      border: none;
+    }
+
+    &.btn-danger {
+      color: $brand-danger;
+      &:hover {
+        color: darken($brand-danger, 10%);
+      }
+    }
+  }
+}

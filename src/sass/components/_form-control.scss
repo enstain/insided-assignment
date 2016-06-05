@@ -1,0 +1,24 @@
+@import "../../lib/bootstrap-sass/assets/stylesheets/bootstrap/forms";
+@import "../../lib/bootstrap-sass/assets/stylesheets/bootstrap/input-groups";
+@import "../../lib/font-awesome/scss/variables.scss";
+
+.form-control {
+  height: $form-ctrl-height;
+  padding: $form-ctrl-padding;
+  margin: $form-ctrl-margin;
+  line-height: $form-ctrl-line-height;
+  font-size: $regular-font-size;
+  border-radius: $form-ctr-border-radius;
+
+  @include box-sizing(border-box);
+}
+
+.input-group {
+  .form-control {
+    margin-right: 0px;
+  }
+
+  .input-group-btn {
+    line-height: $form-ctrl-height;
+  }
+}

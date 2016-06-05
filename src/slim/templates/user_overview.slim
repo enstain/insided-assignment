@@ -1,0 +1,95 @@
+.page-header
+  h1.title User overview
+  .actions-panel
+    select multiselect="" ng-options="usergroup.name as usergroup.name for usergroup in usersFactory.usergroups" ng-model="selectedGroups" multiple="multiple" placeholder="Filter usergroups" ng-change="applyStandaloneFilter('usergroup', selectedGroups)"
+
+    .input-group.search-box
+      input.form-control type="text" placeholder="Search for user" ng-model="username_scope"
+      span.input-group-btn
+        button.btn.btn-default.btn-icon type="button" ng-click="applyStandaloneFilter('name', username_scope)"
+          i.fa.fa-search
+    
+    button.btn.btn-default.btn-icon-left ng-class="show_filters ? 'active' : ''" ng-click="toggleFiltersPanel()"
+      i.fa.fa-sliders
+      | Advanced filter
+    button.btn.btn-primary Add user
+
+.content
+
+  .panel.panel-default.filters ng-show="show_filters"
+    .panel-heading
+      h3.panel-title Advanced filter
+    .panel-body
+      advance-filter
+
+      .filter ng-repeat="filter in added_filters"
+
+        select multiselect="" ng-options="field as field.name for field in filter_fields" ng-model="filter.field" ng-change="refreshFilter(filter)" placeholder="Filter field" class="filter-control"
+
+        select multiselect="" ng-options="comparator as comparator.label for comparator in comparators[filter.field.type]" ng-model="filter.comparator" placeholder="Filter comparator" class="filter-control" ng-if="filter.field.show_comparators"
+
+        filter-value field="filter.field" compare="filter.compareWith"
+
+        button.btn.btn-icon.btn-danger.remove ng-click="removeFilter(filter)"
+          i.fa.fa-close
+
+      button.btn.btn-info.add-filter ng-click="addNewFilter()" ng-disabled="added_filters.length ? !filtersAreFilled() : false" Add row
+
+    .panel-footer
+      button.btn.btn-success ng-disabled="!filtersAreFilled()" ng-click="applyFilters()" Apply
+      button.btn.btn-default ng-click="clearFilters()" ng-disabled="!added_filters.length" Clear filters
+      a.btn.btn-danger.btn-link href="" ng-click="toggleFiltersPanel()" Close
+
+  .table-header
+    .results 
+      span.label Results:
+      span.value ng-bind="filtered.length"
+    .actions-panel
+      .pagination
+        .prev.disabled
+          a href="#" First
+          .delimiter
+          a href="#" Previous
+        .current
+          |Page
+          input.form-control type="text" ng-model="currentPage"
+          | of&nbsp;
+          span.total-count 99
+        .next
+          a href="#" Next
+          .delimiter
+          a href="#" Last
+
+      select multiselect=""
+        option 10 rows
+        option 25 rows
+        option 50 rows
+
+  table.table.users
+    thead
+      tr
+        th 
+          input type="checkbox" id="select-all" ng-click="usersFactory.selectAllUsers()"
+          | Username
+        th Email
+        th Replies
+        th Topics
+        th Solved
+        th Usergroup
+        th Registration date
+        th Last login
+    tbody
+      tr.user ng-class="usersFactory.isSelected(user) ? 'info' : ''" ng-repeat="user in filtered | startFrom: (currentPage-1) * pageSize | limitTo:pageSize "
+        td
+          input type="checkbox" id="bulk-action-for-{{user._id}}" name="check" ng-click="usersFactory.selectUser(user)"
+          img.avatar src="http://lorempixel.com/34/34/people/?{{user._id}}"
+          span ng-bind="user.name"
+          button.btn.btn-default.btn-icon.btn-link.copy
+            i.fa.fa-clone
+        td ng-bind="user.email"
+        td ng-bind="user.replies"
+        td ng-bind="user.topics"
+        td ng-bind="user.solved"
+        td ng-bind="user.usergroup"
+        td ng-bind="user.registered | date:'dd MMM yyyy'"
+        td ng-bind="user.last_login | date:'dd MMM yyyy'"

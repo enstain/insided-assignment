@@ -1,0 +1,42 @@
+.filters {
+  &.panel {
+    margin-bottom: $height;  
+  }
+
+  .filter {
+    @include clearfix();
+
+    .filter-control {
+      width: 180px;
+      float: left;
+      margin: $margin/2;
+
+      &.btn-group {
+        //margin: 0;
+        .btn {
+          width: 100%;
+          text-align: left;
+          margin: 0;
+
+          @include clearfix();
+
+          .caret {
+            float: right;
+            margin-top: $height/2 - 4px;
+          }
+        }
+      }
+    }
+
+    .remove {
+      margin: $margin/2;
+      & > i.fa {
+        font-size: $regular-font-size;
+      }
+    }
+  }
+
+  .add-filter {
+    margin: $margin/2;
+  }
+}

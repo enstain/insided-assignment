@@ -1,0 +1,32 @@
+.pagination {
+  @include clearfix();
+  margin: $btn-margin;
+  margin-right: $margin*2;
+
+  & > * {
+    float: left;
+    letter-spacing: $letter-spacing;
+  }
+
+  & > *.disabled {
+    a {
+      color: $gray-palm;  
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+
+  .current {
+    margin-left: $margin*2;
+    margin-right: $margin*2;
+
+    .form-control {
+      width: $height;
+      display: inline-block;
+      padding: 0;
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+}

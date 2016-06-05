@@ -1,0 +1,16 @@
+@import "../../lib/bootstrap-sass/assets/stylesheets/bootstrap/dropdowns";
+
+.dropdown {
+  margin: $dropdown-margin;
+
+  .form-control {
+    margin: 0;
+    min-width: 140px;
+    width: inherit;
+
+    .ui-select-placeholder {
+      color: $gray-light;
+      font-weight: 300;
+    }
+  }
+}

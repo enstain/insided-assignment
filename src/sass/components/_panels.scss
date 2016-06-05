@@ -1,0 +1,18 @@
+@import "../../lib/bootstrap-sass/assets/stylesheets/bootstrap/panels";
+
+.panel-heading {
+  @include box-shadow(0 1px 2px 0px rgba(0,0,0,0.1));
+  @include gradient-vertical(rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+  padding: $margin/1.6 $margin;
+
+  .panel-title {
+    font-size: $regular-font-size;
+  }
+}
+
+.panel-footer {
+  .btn {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}

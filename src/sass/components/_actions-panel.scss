@@ -1,0 +1,13 @@
+.actions-panel {
+  float: right;
+  display: inline-block;
+  @include clearfix();
+
+  & > * {
+    float: left;
+  }
+
+  & > *:last-child {
+    margin-right: 0px;
+  }
+}

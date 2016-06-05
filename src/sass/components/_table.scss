@@ -1,0 +1,88 @@
+@import "../../lib/bootstrap-sass/assets/stylesheets/bootstrap/tables";
+
+.table-header {
+  height: $height;
+  line-height: $height;
+  margin-bottom: $margin;
+  @include clearfix();
+
+  .results {
+    letter-spacing: $letter-spacing;
+    float: left;
+    margin: $btn-margin;
+    margin-left: 0;
+    .label {
+      font-family: $font-bold;
+      font-weight: 600;
+    }
+  }
+}
+
+.table {
+  width: 100%;
+  border: $table-border;
+
+  thead {
+    tr {
+      th {
+        font-family: $font-bold;
+        letter-spacing: $letter-spacing;
+        line-height: 22px;
+        vertical-align: middle;
+        padding: $table-row-padding;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        border: $table-border;
+        vertical-align: middle;
+        padding: $table-row-padding;
+        line-height: 23px;
+        letter-spacing: $table-letter-spacing;
+      }
+    }
+  }
+
+  &.users {
+    .checkbox {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    thead {
+      .checkbox {
+        vertical-align: initial;
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-right: $table-row-padding;
+      }
+    }
+
+    tbody {
+      tr {
+        td {
+          @include clearfix();
+
+          .avatar {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: $table-row-padding;
+            margin-right: $table-row-padding;
+          }
+
+          .copy {
+            color: $black;
+            float: right;
+            vertical-align: middle;
+            display: inline-block;
+            margin: 0;
+            height: 34px;
+          }
+        }
+      }
+    }
+  }
+}

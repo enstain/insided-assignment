@@ -1,0 +1,111 @@
+// BOOTSTRAP VARIABLES IMPORT IS ON THE BOTTOM OF THIS FILE //
+
+// COLORS //
+
+  $black:                 #111;
+  $gray-dark:             #333;
+  $gray-active:           #505050;
+  $gray-light:            #878787;
+  $gray-palm:             #C5C5C5;
+  $white:                 #FFF;
+  $blue:                  #3B99FC;
+  $blue-light:            #77cef9;
+
+  $brand-primary:         #1DADF5;
+  $brand-success:         #8EC728;
+  $brand-info:            #1DADF5;
+  $brand-warning:         #f0ad4e;
+  $brand-danger:          #D9604C;
+
+  $state-info-bg:         #E8F6FE;
+
+// COMMON THINGS //
+
+  $height:                30px;
+  $border:                1px solid $gray-palm;
+  $border-radius:         2px;
+  $shadow:                0px 1px 1px 0px rgba(0,0,0,0.2);
+  $text-shadow:           0px 1px 1px rgba(0,0,0,0.20);
+  $margin:                10px;
+  $vertical-margin:       8px;
+  $letter-spacing:        0.2px;
+
+// TYPOGRAPHY //
+
+  $font-bold:             "Helvetica Neue Bold", Arial, sans-serif;
+  $font-regular:          "Helvetica Neue Regular", Arial, sans-serif;
+
+  $regular-font-size:     12px;
+  $regular-line-height:   18px;
+
+  $h4-size:               15px;
+  $h4-line-height:        20px;
+
+  $h3-size:               21px;
+  $h3-line-height:        26px;
+
+  $h2-size:               24px;
+  $h2-line-height:        30px;
+
+  $h1-size:               30px;
+  $h1-line-height:        34px;
+
+// BUTTONS //
+
+  $btn-height:            $height;
+  $btn-line-height:       $btn-height - 2;
+  $btn-border-radius:     $border-radius;
+  $btn-margin:            $margin $margin/2;
+  $btn-padding-vertical:  0px;
+  $btn-padding-horizontal: $margin;
+  $btn-icon-size:         14px;
+  $btn-shadow:            $shadow;
+
+// FORM CONTROL //
+
+  $form-ctrl-height:      $height;
+  $form-ctrl-line-height: 14px;
+  $form-ctrl-border:      1px solid;
+  $form-ctr-border-radius: $border-radius;
+  $form-ctrl-shadow:      inset 0px 2px 1px rgba(0,0,0,0.1);
+  $form-ctrl-margin:      $margin;
+  $form-ctrl-padding:     $vertical-margin $margin;
+
+  $textarea-height:       70px;
+  $textare-line-height:   18px;
+
+  $checkbox-size:         14px;
+  $checkbox-font-size:    10px;
+
+// DROPDOWNS //
+  
+  $dropdown-height:       $height;
+  $dropdown-border-radius: $border-radius;
+  $dropdown-border:       $form-ctrl-border;
+  $dropdown-margin:       $margin;
+  $dropdown-padding:      $vertical-margin $margin;
+
+// PAGE //
+
+  // HEADER //
+
+    $page-header-height:  90px;
+    $common-padding:      ($page-header-height - $btn-height) / 2;
+
+// TABLE //
+  $table-border:          $border;
+  $table-thead-height:    44px;
+  $table-row-height:      54px;
+  $table-row-padding:     10px;
+  $table-letter-spacing:  0.1px;
+
+// PANEL //
+  $panel-default-border:  $gray-palm;
+  $panel-border-radius:   0px;
+  $panel-default-heading-bg: $white;
+  $panel-bg:              $white;
+  $panel-footer-bg:       $white;
+
+
+
+@import "../../lib/bootstrap-sass/assets/stylesheets/bootstrap/variables";
