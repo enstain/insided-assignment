@@ -1,9 +1,11 @@
-#@prepros-prepend ../lib/jquery/dist/jquery.min.js
-#@prepros-prepend ../lib/bootstrap-sass/assets/javascripts/bootstrap.min.js
-#@prepros-prepend ../lib/angular/angular.min.js
-#@prepros-prepend ../lib/angular-route/angular-route.min.js
-#@prepros-prepend ../lib/angular-resource/angular-resource.min.js
-#@prepros-prepend ../lib/bootstrap-multiselect/dist/js/bootstrap-multiselect.js
+`
+//= include ../lib/jquery/dist/jquery.min.js
+//= include ../lib/bootstrap-sass/assets/javascripts/bootstrap.min.js
+//= include ../lib/angular/angular.min.js
+//= include ../lib/angular-route/angular-route.min.js
+//= include ../lib/angular-resource/angular-resource.min.js
+//= include ../lib/bootstrap-multiselect/dist/js/bootstrap-multiselect.js
+`
 
 insidedApp = angular.module('insidedApp',[
   'ngRoute',
@@ -31,8 +33,3 @@ controllers = angular.module('controllers',[])
 filters = angular.module('filters',[])
 directives = angular.module('directives',[])
 factories = angular.module('factories',[])
-
-#@prepros-append controllers/**/*.coffee
-#@prepros-append filters/**/*.coffee
-#@prepros-append directives/**/*.coffee
-#@prepros-append factories/**/*.coffee

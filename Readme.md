@@ -1,8 +1,10 @@
 ## Preparations
+install Ruby (and RubyGems) first and run
+`gem install slim -v '>= 3.0.2'`
 `bower install`
 
 ## Building
-Project is being building by Prepros
+`gulp build`
 
 ## Run
-There is no any server process to run app, use Prepros or smth
+`gulp`

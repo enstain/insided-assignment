@@ -1,3 +1,7 @@
 .DS_Store
 src/lib
-public/json/scratch
+www/json/scratch
+www/css
+www/js
+www/templates
+www/index.html
