@@ -13,6 +13,7 @@ shell = require('gulp-shell'),
 cssmin = require('gulp-cssmin'),
 coffeelint = require('gulp-coffeelint'),
 browserSync = require('browser-sync'),
+changed = require('gulp-changed'),
 isProd = gutil.env.type === 'prod',
 
 sources = {
@@ -30,7 +31,7 @@ targets = {
 };
 
 gulp.task('lint', function() {
-  return gulp.src(sources.js).pipe(coffeelint()).pipe(coffeelint.reporter());
+  gulp.src(sources.js).pipe(coffeelint()).pipe(coffeelint.reporter());
 });
 
 gulp.task('js', function() {
@@ -49,11 +50,12 @@ gulp.task('js', function() {
       extensions: "js"
     }))
   );
-  return stream.done().pipe(concat("app.js")).pipe(isProd ? uglify() : gutil.noop()).pipe(gulp.dest(targets.js));
+  stream.done().pipe(concat("app.js")).pipe(isProd ? uglify() : gutil.noop()).pipe(gulp.dest(targets.js));
 });
 
 gulp.task('slim', function(){
   gulp.src(sources.html)
+    .pipe(changed(targets.html, { extension: '.html'}))
     .pipe(slim({
       pretty: true
     }))
@@ -71,11 +73,11 @@ gulp.task('css', function() {
     includePaths: ['src/css'],
     errLogToConsole: true
   })));
-  return stream.done().pipe(concat("style.css")).pipe(isProd ? uglify() : gutil.noop()).pipe(gulp.dest(targets.css));
+  stream.done().pipe(concat("style.css")).pipe(isProd ? uglify() : gutil.noop()).pipe(gulp.dest(targets.css));
 });
 
 gulp.task('server', function() {
-  return browserSync.init(null, {
+  browserSync.init(null, {
     open: true,
     server: {
       baseDir: targets.html
@@ -88,12 +90,13 @@ gulp.task('server', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(sources.js, ['js']);
-  gulp.watch(sources.css, ['css']);
+  gulp.watch(sources.coffee, ['js']);
+  gulp.watch(sources.sass, ['css']);
   gulp.watch(sources.html, ['slim']);
-  return gulp.watch('www/**/**', function(file) {
+
+  gulp.watch('www/**/**', function(file) {
     if (file.type === "changed") {
-      return browserSync.reload(file.path);
+      browserSync.reload(file.path);
     }
   });
 });
