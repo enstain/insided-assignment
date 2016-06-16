@@ -10,6 +10,7 @@
 insidedApp = angular.module('insidedApp',[
   'ngRoute',
   'ngResource',
+  'constants',
   'controllers',
   'filters',
   'directives',
@@ -29,6 +30,7 @@ insidedApp.config([ '$routeProvider', '$httpProvider',
       )
 ]);
 
+constants = angular.module('constants',[])
 controllers = angular.module('controllers',[])
 filters = angular.module('filters',[])
 directives = angular.module('directives',[])

@@ -1,0 +1,15 @@
+.panel.panel-default.filters ng-show="filtersFactory.show"
+  .panel-heading
+    h3.panel-title Advanced filter
+  .panel-body
+    advance-filter
+
+    .filter ng-repeat="filter in filtersFactory.addedFilters"
+      filter-box
+
+    button.btn.btn-info.add-filter ng-click="filtersFactory.addNewFilter()" ng-disabled="filtersFactory.addNewFilterIsDisabled()" Add row
+
+  .panel-footer
+    button.btn.btn-success ng-disabled="!filtersFactory.filtersAreFilled()" ng-click="filtersFactory.applyFilters()" Apply
+    button.btn.btn-default ng-click="filtersFactory.clearFilters()" ng-disabled="!filtersFactory.addedFilters.length" Clear filters
+    a.btn.btn-danger.btn-link href="" ng-click="filtersFactory.toggleFiltersPanel()" Close
