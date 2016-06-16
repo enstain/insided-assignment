@@ -1,38 +1,38 @@
 filters = angular.module('filters')
 filters.filter('advanceFilter', [ 
   () ->
-    (array, filters) ->
+    (sourceArray, filters) ->
 
       if filters.length
 
-        filtered_arrays = {};
+        filteredArrays = {};
 
         filters.forEach(
           (filter)->
-            field_name = filter.field.field_name
+            fieldName = filter.field.fieldName
             comparator = filter.comparator.filterFunction
             value = filter.compareWith.value
 
-            if (!filtered_arrays[field_name])
-              filtered_arrays[field_name] = []
+            if (!filteredArrays[fieldName])
+              filteredArrays[fieldName] = []
             
-            filtered_arrays[field_name] = filtered_arrays[field_name].concat(
-              array.filter(
+            filteredArrays[fieldName] = filteredArrays[fieldName].concat(
+              sourceArray.filter(
                 (item)-> 
-                  return comparator(item[field_name],value)
+                  return comparator(item[fieldName],value)
               )
             )
         );
 
-        filtered = array.filter(
+        filteredResult = sourceArray.filter(
           (item)->
-            return Object.keys(filtered_arrays).every(
+            return Object.keys(filteredArrays).every(
               (key)->
-                return ~filtered_arrays[key].indexOf(item)
+                return ~filteredArrays[key].indexOf(item)
             )
         )
         
-        return filtered
+        return filteredResult
       else
-        return array
+        return sourceArray
 ]);

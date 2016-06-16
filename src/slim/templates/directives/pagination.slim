@@ -1,0 +1,16 @@
+.pagination
+  .prev ng-class="prevButtonsDisabled ? 'disabled' : ''"
+    button.nav.btn.btn-link ng-click="toFirstPage()" First
+    .delimiter
+    button.nav.btn.btn-link ng-click="toPreviousPage()" Previous
+  .current
+    |Page
+    input.form-control readonly="readonly" type="text" ng-model="currentPage"
+    | of&nbsp;
+    span.total-count ng-bind="totalPages"
+  .next ng-class="nextButtonsDisabled ? 'disabled' : ''"
+    button.nav.btn.btn-link ng-click="toNextPage()" Next
+    .delimiter
+    button.nav.btn.btn-link ng-click="toLastPage()" Last
+
+select multiselect="" ng-model="pageSize" ng-options="size.value as size.label for size in pageSizes"

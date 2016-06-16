@@ -22,52 +22,24 @@
     .results 
       span.label Results:
       span.value ng-bind="filteredUsers.length"
-    .actions-panel
-      .pagination
-        .prev.disabled
-          a href="#" First
-          .delimiter
-          a href="#" Previous
-        .current
-          |Page
-          input.form-control type="text" ng-model="currentPage"
-          | of&nbsp;
-          span.total-count 99
-        .next
-          a href="#" Next
-          .delimiter
-          a href="#" Last
-
-      select multiselect="" ng-model="pageSize"
-        option value="10" 10 rows
-        option value="25" 25 rows
-        option value="50" 50 rows
+    .actions-panel pagination="true" collection-size="filteredUsers.length"
 
   table.table.users
     thead
-      tr
-        th 
-          input type="checkbox" id="select-all" ng-click="usersFactory.selectAllUsers()"
-          | Username
-        th Email
-        th Replies
-        th Topics
-        th Solved
-        th Usergroup
-        th Registration date
-        th Last login
+      tr sortable="true" collection-factory="usersFactory"
+        
     tbody
-      tr.user ng-class="usersFactory.isSelected(user) ? 'info' : ''" ng-repeat="user in filteredUsers | startFrom: (currentPage-1) * pageSize | limitTo:pageSize "
+      tr.user ng-class="usersFactory.isSelected(user) ? 'info' : ''" ng-repeat="user in filteredUsers | orderBy:sortType:sortReverse | startFrom: (currentPage-1) * pageSize | limitTo:pageSize"
         td
-          input type="checkbox" id="bulk-action-for-{{user._id}}" name="check" ng-click="usersFactory.selectUser(user)"
-          img.avatar src="http://lorempixel.com/34/34/people/?{{user._id}}"
-          span ng-bind="user.name"
+          input type="checkbox" id="bulk-action-for-{{::user._id}}" name="check" ng-click="usersFactory.selectUser(user)"
+          img.avatar src="http://lorempixel.com/34/34/people/?{{::user._id}}"
+          span ng-bind="::user.name"
           button.btn.btn-default.btn-icon.btn-link.copy
             i.fa.fa-clone
-        td ng-bind="user.email"
-        td ng-bind="user.replies"
-        td ng-bind="user.topics"
-        td ng-bind="user.solved"
-        td ng-bind="user.usergroup"
-        td ng-bind="user.registered | date:'dd MMM yyyy'"
-        td ng-bind="user.last_login | date:'dd MMM yyyy'"
+        td ng-bind="::user.email"
+        td ng-bind="::user.replies"
+        td ng-bind="::user.topics"
+        td ng-bind="::user.solved"
+        td ng-bind="::user.usergroup"
+        td ng-bind="::user.registered | date:'dd MMM yyyy'"
+        td ng-bind="::user.last_login | date:'dd MMM yyyy'"

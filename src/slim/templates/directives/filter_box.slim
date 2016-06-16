@@ -1,6 +1,6 @@
 select multiselect="" ng-options="field as field.name for field in filtersFactory.filterFields" ng-model="filter.field" ng-change="filtersFactory.refreshFilter(filter)" placeholder="Filter field" class="filter-control"
 
-select multiselect="" ng-options="comparator as comparator.label for comparator in comparators[filter.field.type]" ng-model="filter.comparator" placeholder="Filter comparator" class="filter-control" ng-if="filter.field.show_comparators"
+select multiselect="" ng-options="comparator as comparator.label for comparator in comparators[filter.field.type]" ng-model="filter.comparator" placeholder="Filter comparator" class="filter-control" ng-if="filter.field.showComparators"
 
 filter-value field="filter.field" compare="filter.compareWith"
 

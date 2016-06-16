@@ -19,14 +19,15 @@ factories.factory('Users',['$resource', ($resource)->
 
   Users.usergroups = usergroupSource;
 
-  Users.filterableFields = [
-    { id:1, name:"Replies", field_name:"replies", type:"number", show:true ,show_comparators:true},
-    { id:2, name:"Topics", field_name:"topics", type:"number", show:true ,show_comparators:true},
-    { id:3, name:"Solved", field_name:"solved", type:"number", show:true ,show_comparators:true},
-    { id:4, name:"Usergroup", field_name:"usergroup", type:"collection", source:usergroupSource ,show:true ,show_comparators:false},
-    { id:5, name:"Registration date", field_name:"registered", type:"date", show:true ,show_comparators:true},
-    { id:6, name:"Last login", field_name:"last_login", type:"date", show:true ,show_comparators:true},
-    { id:6, name:"Name", field_name:"name", type:"string", show:false ,show_comparators:true},
+  Users.fields = [
+    { id:1, name:"Username",  fieldName:"name", type:"string", filterable:true, showFilter:false, showComparators:true },
+    { id:2, name:"Email",  fieldName:"email", type:"string", filterable:false },
+    { id:3, name:"Replies", fieldName:"replies", type:"number", filterable:true, showFilter:true, showComparators:true},
+    { id:4, name:"Topics", fieldName:"topics", type:"number", filterable:true, showFilter:true ,showComparators:true},
+    { id:5, name:"Solved", fieldName:"solved", type:"number", filterable:true, showFilter:true ,showComparators:true},
+    { id:6, name:"Usergroup", fieldName:"usergroup", type:"collection", source:usergroupSource, filterable:true, showFilter:true ,showComparators:false},
+    { id:7, name:"Registration date", fieldName:"registered", type:"date", filterable:true, showFilter:true ,showComparators:true},
+    { id:8, name:"Last login", fieldName:"last_login", type:"date", filterable:true, showFilter:true ,showComparators:true},
   ];
 
   Users.selectedUsers = [];
@@ -37,6 +38,9 @@ factories.factory('Users',['$resource', ($resource)->
       this.selectedUsers.splice(index,1)
     else
       this.selectedUsers.push(user)
+
+  Users.selectAll = ()->
+    console.log('select all users')
 
   Users.isSelected = (user)->
     return ~this.selectedUsers.indexOf(user)

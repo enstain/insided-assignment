@@ -11,6 +11,10 @@
   border-radius: $form-ctr-border-radius;
 
   @include box-sizing(border-box);
+
+  &[readonly] {
+    background-color: $white;
+  }
 }
 
 .input-group {

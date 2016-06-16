@@ -30,6 +30,14 @@
         line-height: 22px;
         vertical-align: middle;
         padding: $table-row-padding;
+
+        .sortable {
+          cursor: pointer;
+
+          .direction {
+            padding-left: 5px;
+          }
+        }
       }
     }
   }

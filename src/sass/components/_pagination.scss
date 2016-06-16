@@ -3,13 +3,17 @@
   margin: $btn-margin;
   margin-right: $margin*2;
 
+  .nav {
+    margin: 0;
+  }
+
   & > * {
     float: left;
     letter-spacing: $letter-spacing;
   }
 
   & > *.disabled {
-    a {
+    .nav {
       color: $gray-palm;  
       pointer-events: none;
       cursor: default;

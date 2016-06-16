@@ -1,0 +1,5 @@
+th ng-repeat="field in collectionFactory.fields"
+  input type="checkbox" id="select-all" ng-click="collectionFactory.selectAll()" ng-if="$index == 0"
+  span.sortable ng-click="changeSortField(field.fieldName)"
+    | {{field.name}}
+    span ng-show="sortType == field.fieldName" class="fa direction" ng-class="!sortReverse ? 'fa-caret-down' : 'fa-caret-up'"

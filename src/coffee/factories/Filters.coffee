@@ -1,12 +1,13 @@
 factories = angular.module('factories')
-factories.factory('Filters', ['$filter', 'COMPARATORS', ($filter, COMPARATORS)->
+factories.factory('Filters', ['COMPARATORS', '$filter', (COMPARATORS, $filter)->
 
   FiltersInstance = (Collection)->
     this.show = false
     this.addedFilters = []
     this.source = Collection.get()
     this.filteredCollection = this.source
-    this.filterFields = Collection.filterableFields.filter((filter)-> filter.show)
+    this.filterableFields = Collection.fields.filter((field)-> field.filterable)
+    this.filterFields = this.filterableFields.filter((field)-> field.showFilter)
 
     this.toggleFiltersPanel = ()->
       this.show = !this.show
@@ -56,18 +57,18 @@ factories.factory('Filters', ['$filter', 'COMPARATORS', ($filter, COMPARATORS)->
       this.filteredCollection = $filter('advanceFilter')(this.source, this.addedFilters)
       return
 
-    this.applyStandaloneFilter = (field_name, search_source)->
+    this.applyStandaloneFilter = (fieldName, searchSource)->
       this.show = false
-      if search_source.length
-        filter_field = Collection.filterableFields.filter((field)-> field.field_name == field_name)[0]
+      if searchSource.length
+        filterField = this.filterableFields.filter((field)-> field.fieldName == fieldName)[0]
         filter = {
-          field: filter_field,
-          comparator: COMPARATORS[filter_field.type][0],
-          compareWith: {value: search_source}
+          field: filterField,
+          comparator: COMPARATORS[filterField.type][0],
+          compareWith: {value: searchSource}
         }
 
-        fake_filter_array = [].concat(filter)
-        this.filteredCollection = $filter('advanceFilter')(this.source, fake_filter_array)
+        fakeFilterArray = [].concat(filter)
+        this.filteredCollection = $filter('advanceFilter')(this.source, fakeFilterArray)
       else
         this.filteredCollection = this.source
       return
