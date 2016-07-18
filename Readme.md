@@ -3,7 +3,7 @@ There is a single page with user list and filters.
 
 1. Page header includes:
 - Page title: User overview
-- Multi­select dropdown to filter on user group (values: Captain, Colonel, General, Lieutenant, Officer)
+- Multi select dropdown to filter on user group (values: Captain, Colonel, General, Lieutenant, Officer)
 - Search
 - Advanced filter (triggers an advanced filter panel) 
 - Primary button
