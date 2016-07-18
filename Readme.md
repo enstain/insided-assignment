@@ -2,18 +2,18 @@
 There is a single page with user list and filters.
 
 1. Page header includes:
-- Page title: User overview
-- Multi select dropdown to filter on user group (values: Captain, Colonel, General, Lieutenant, Officer)
-- Search
-- Advanced filter (triggers an advanced filter panel) 
-- Primary button
+  1. Page title: User overview
+  2. Multi select dropdown to filter on user group (values: Captain, Colonel, General, Lieutenant, Officer)
+  3. Search
+  4. Advanced filter (triggers an advanced filter panel) 
+  5. Primary button
 
 2. Table includes:
-- Table labels (static)
-- Checkbox, selecting a row will change the color of the row 
-- Image
-- Icon
-- Text values (dummy data)
+  1. Table labels (static)
+  2. Checkbox, selecting a row will change the color of the row 
+  3. Image
+  4. Icon
+  5. Text values (dummy data)
 
 3. Advanced filter panel. This panel appears when the ‘Advanced filter’ button in the page header is clicked. Table for the dropdown options:
 
