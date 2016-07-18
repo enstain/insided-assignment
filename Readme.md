@@ -20,8 +20,8 @@ There is a single page with user list and filters.
 |First dropdown|Second dropdown|Value|
 |---|---|---|
 |Replies, Topics, Solved|Type single select: Is greater than, Is smaller than, Equals|Text input|
-|Usergroup|Type multi select: Captain, Colonel, General, Lieutenant, Officer|-|
-­|Registration date, last login|Before, After, Exact date|Datepicker
+|Usergroup|Type multi select: Captain, Colonel, General, Lieutenant, Officer| - |
+­|Registration date, last login|Before, After, Exact date|Datepicker|
 
 #Instructions
 ## Preparations
